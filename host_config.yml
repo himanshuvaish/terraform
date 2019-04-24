@@ -3,7 +3,7 @@
 
  tasks:
    -name: Install apache
-    apt: name=apache2 update_cache=yes state=latest
+    apt: name=httpd update_cache=yes state=latest
     notify:
       - restart apache2
 handlers:
