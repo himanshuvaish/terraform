@@ -1,3 +1,0 @@
-output "instance_ip" {}
-
-  
