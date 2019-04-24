@@ -31,4 +31,7 @@ resource "aws_instance" "tf_server" {
   vpc_security_group_ids = ["${var.security_group}"]
   subnet_id              = "${element(var.subnets, count.index)}"
   #user_data              = "${data.template_file.user-init.*.rendered[count.index]}"
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.tf_server.private_ip} >> private_ips.txt"
 }
