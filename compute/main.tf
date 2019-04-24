@@ -34,4 +34,5 @@ resource "aws_instance" "tf_server" {
 
   provisioner "local-exec" {
     command = "echo ${aws_instance.tf_server.private_ip} >> private_ips.txt"
+  }
 }
