@@ -32,7 +32,7 @@ resource "aws_instance" "tf_server" {
   subnet_id              = "${element(var.subnets, count.index)}"
   #user_data              = "${data.template_file.user-init.*.rendered[count.index]}"
 
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.tf_server.private_ip} >> private_ips.txt"
-  }
+  #provisioner "local-exec" {
+   # command = "echo ${aws_instance.tf_server.private_ip} >> private_ips.txt"
+  # }
 }
