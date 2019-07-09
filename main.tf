@@ -7,7 +7,7 @@ terraform {
     region         = "us-east-1"
     # Replace this with your DynamoDB table name!
     dynamodb_table = "terraform-state-lock-dynamo"
-    #encrypt        = true
+    encrypt        = false
   }
 }
 provider "aws"{
