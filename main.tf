@@ -1,6 +1,6 @@
 #Define a Provider
-terraform {
-  backend "s3" {
+#terraform {
+#  backend "s3" {
     # Replace this with your bucket name!
     #bucket         = "terraformpipelinehimanshu"
     #key            = "global/s3/terraform.tfstate"
@@ -8,8 +8,8 @@ terraform {
     # Replace this with your DynamoDB table name!
     #dynamodb_table = "terraform-state-lock-dynamo"
     #encrypt        = false
-  }
-}
+ # }
+#}
 provider "aws"{
   region="${var.aws_region}"
 }
