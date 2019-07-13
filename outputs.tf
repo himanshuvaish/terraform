@@ -15,5 +15,5 @@ output "Private Subnets" {
 }
 
 output "S3 Bucket" {
-  value = "${module.storage.s3_bucket}"
+  value = "${module.storage.dynamodb}"
 }
