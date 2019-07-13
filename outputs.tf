@@ -13,7 +13,3 @@ output "Public Subnets" {
 output "Private Subnets" {
   value = "${join(", ", module.networking.private_subnets, module.networking.private_subnet_ips)}"
 }
-
-output "S3 Bucket" {
-  value = "${module.storage.dynamodb}"
-}
