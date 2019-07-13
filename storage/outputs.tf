@@ -1,3 +1,3 @@
-output "s3_bucket" {
-  value = "${aws_s3_bucket.easemylife.id}"
+output "dynamodb" {
+  value = "${aws_dynamodb_sessioninformation.id}"
 }
