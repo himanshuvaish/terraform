@@ -13,4 +13,4 @@ key_name = "tf_key"
 public_key_path = "./mytest.pub"
 server_instance_type = "t2.micro"
 instance_count = 2
-bucket_name="easethelifehimanshu.com"
+dynamodbtable="session-information"
