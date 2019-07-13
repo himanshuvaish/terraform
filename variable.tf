@@ -12,8 +12,6 @@ variable "private_cidrs" {
 }
 variable "access_ip" {}
 
-variable "bucket_name" {}
-
 variable "key_name" {}
 
 variable "public_key_path" {}
