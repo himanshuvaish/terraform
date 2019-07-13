@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "sessioninformation" {
-  name           = "session-information"
+  name           = "${var.dynamodbtable}"
   hash_key       = "SessionID"
   read_capacity  = 20
   write_capacity = 20
