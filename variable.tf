@@ -21,3 +21,5 @@ variable "public_key_path" {}
 variable "server_instance_type" {}
 
 variable "instance_count" {}
+
+variable "dynamodbtable"{}
