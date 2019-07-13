@@ -25,7 +25,7 @@ module "networking" {
 
 module "storage" {
   source="./storage"
-  bucket_name="${var.bucket_name}"
+  bucket_name="${var.dynamodbtable}"
 }
 
 module "compute"{
