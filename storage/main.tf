@@ -1,9 +1,15 @@
-resource "aws_s3_bucket" "easemylife" {
-  bucket = "${var.bucket_name}"
-  acl    = "private"
+resource "aws_dynamodb_table" "sessioninformation" {
+  name           = "session-information"
+  hash_key       = "SessionID"
+  read_capacity  = 20
+  write_capacity = 20
 
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
+  attribute {
+    name = "SessionID"
+    type = "S"
+  }
+
+  tags {
+    Name = "SessionIDTable"
   }
 }
