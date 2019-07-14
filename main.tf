@@ -3,6 +3,15 @@ terraform {
   backend "s3" {}
 }
 
+data "terraform_remote_state" "state" {
+  backend = "s3"
+  config {
+    bucket     = "terraformpipelinehimanshu"
+    region     = "us-east-1"
+    key        = "${var.aws_region}/terraform.tfstate"
+  }
+}
+
 provider "aws"{
   region="${var.aws_region}"
 }
