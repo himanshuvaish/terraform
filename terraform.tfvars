@@ -11,6 +11,6 @@ private_cidrs=[
 access_ip = "0.0.0.0/0"
 key_name = "tf_key"
 public_key_path = "./mytest.pub"
-server_instance_type = "t2.small"
+server_instance_type = "t2.medium"
 instance_count = 2
 dynamodbtable="session-information"
