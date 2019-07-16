@@ -13,6 +13,9 @@ data "aws_ami" "server_ami" {
   owners = ["amazon"]
 }
 
+data "aws_iam_instance_profile" "instanceprofile" {
+  name = "serviceprofile"
+}
 resource "aws_key_pair" "tf_auth" {
   key_name="${var.key_name}"
   public_key="${file(var.public_key_path)}"
@@ -25,16 +28,11 @@ resource "aws_instance" "tf_server" {
   tags {
     Name = "tf_server-${count.index +1}_${var.region}"
   }
-
+  iam_instance_profile = "${data.aws_iam_instance_profile.instanceprofile.name}"
   key_name               = "${aws_key_pair.tf_auth.id}"
   vpc_security_group_ids = ["${var.private_sg}"]
   subnet_id              = "${element(var.private_subnets, count.index)}"
-  #user_data              = "${data.template_file.user-init.*.rendered[count.index]}"
-
-  #provisioner "local-exec" {
-   # command = "echo ${aws_instance.tf_server.private_ip} >> private_ips.txt"
-  # }
-}
+  }
 
 resource "aws_lb" "perimeter_network" {
   name               = "perimeternlb"
@@ -68,6 +66,5 @@ resource "aws_lb_target_group_attachment" "tg-nlb" {
   count="${var.instance_count}"
   target_group_arn = "${aws_lb_target_group.perimeter_tg.arn}"
   target_id        = "${element(aws_instance.tf_server.*.id, count.index)}"
-  #"${element(var.private_subnets, count.index)}"
   port             = 80
 }
