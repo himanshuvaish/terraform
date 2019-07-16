@@ -133,5 +133,7 @@ resource "aws_security_group" "tf_private_SG" {
     protocol    = "-1"
     security_groups=["${aws_security_group.tf_public_SG.id}"]
     self=true
+    cidr_blocks=["${var.vpc_cidr}"]
+
   }
 }
